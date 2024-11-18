@@ -43,7 +43,7 @@ public:
     value -= other.value;
     if (value < 0)
       value += MOD;
-    return value;
+    return *this;
   }
 
   modint& operator*=(const modint& other) {
