@@ -87,9 +87,26 @@ public:
 };
 
 template<int MOD>
+modint<MOD> make_modint(long long value) {
+  return modint<MOD>(value);
+}
+
+template<int MOD>
 modint<MOD> operator+(const modint<MOD>& a, const modint<MOD>& b) {
   modint<MOD> copy = a;
   return copy += b;
+}
+
+template<int MOD>
+modint<MOD> operator+(long long value, const modint<MOD>& b) {
+  modint<MOD> copy = b;
+  return copy += modint<MOD>(value);
+}
+
+template<int MOD>
+modint<MOD> operator+(const modint<MOD>& b, long long value) {
+  modint<MOD> copy = b;
+  return copy += modint<MOD>(value);
 }
 
 template<int MOD>
@@ -99,9 +116,33 @@ modint<MOD> operator-(const modint<MOD>& a, const modint<MOD>& b) {
 }
 
 template<int MOD>
+modint<MOD> operator-(long long value, const modint<MOD>& b) {
+  modint<MOD> copy = modint<MOD>(value);
+  return copy -= b;
+}
+
+template<int MOD>
+modint<MOD> operator-(const modint<MOD>& b, long long value) {
+  modint<MOD> copy = modint<MOD>(b);
+  return copy -= modint<MOD>(value);
+}
+
+template<int MOD>
 modint<MOD> operator*(const modint<MOD>& a, const modint<MOD>& b) {
   modint<MOD> copy = a;
   return copy *= b;
+}
+
+template<int MOD>
+modint<MOD> operator*(long long value, const modint<MOD>& b) {
+  modint<MOD> copy = modint<MOD>(value);
+  return copy *= b;
+}
+
+template<int MOD>
+modint<MOD> operator*(const modint<MOD>& b, long long value) {
+  modint<MOD> copy = modint<MOD>(b);
+  return copy *= modint<MOD>(value);
 }
 
 template<int MOD>
